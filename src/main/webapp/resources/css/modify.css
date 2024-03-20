@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+ #pw-text1, #pw-text2, #pw-text3, #pw-text4,
+ #title-text1, #content-text1, #userId-text1, #deleteDate-text1, #title-text2, #userId-text2
+ {
+      color: red;
+      font-weight: bold;
+      margin-top: 5px;
+}

@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+h1, h4, p {
+	text-align: left; /* 왼쪽 정렬로 변경 */
+}
+
+.right-align {
+	text-align: right; /* 오른쪽 정렬 */
+}
+
+#date {
+	font-size: 13px;
+	color: #999;
+}
+
+#viewCount {
+	font-size: 13px;
+	color: #999;
+}

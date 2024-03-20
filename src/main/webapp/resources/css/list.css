@@ -1,0 +1,89 @@
+@charset "UTF-8";
+
+nav.page.navigation {
+    display: flex;
+    justify-content: center;
+}
+
+#searchForm {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 20px; /* 조절 가능한 여백 */
+}
+
+#searchForm select,
+#searchForm input[type="text"],
+#searchForm button {
+    height: 38px;
+}
+
+#searchForm select,
+#searchForm input[type="text"] {
+    margin-right: 10px;
+}
+
+#searchForm button {
+    margin-left: 10px;
+}
+
+#searchForm input[type="text"] {
+    width: 150px; /* 너비 조절 가능 */
+}
+
+#searchForm button {
+    margin-left: -10px; /* 버튼을 왼쪽으로 이동 */
+}
+.table {
+    width: 870px;
+    margin: auto; /* 가운데 정렬을 위해 추가 */
+}
+
+thead {
+	font-weight: normal;
+    background-color:#f0f0f0;
+    text-align: center;
+    height: 43.39px; /* 높이 조절 가능 */
+}
+
+th:first-child {
+    width: 80px; /* 번호 칸 너비 조절 가능 */
+}
+
+th:nth-child(2) {
+    width: 590px; /* 제목 칸 너비 조절 가능 */
+}
+
+th:nth-child(3) {
+    width: 120px; /* 작성일 칸 너비 조절 가능 */
+}
+
+th:nth-child(4) {
+    width: 80px; /* 조회 칸 너비 조절 가능 */
+}
+
+td:first-child, td:nth-child(3), td:nth-child(4) {
+    text-align: center;
+}
+
+td:nth-child(2) a {
+    text-decoration: none; /* 호버 시에 밑줄 제거 */
+    color: #000 !important; /* 링크 텍스트 색상을 검은색으로 설정 */
+}
+h1, h4 {
+    text-align: left; /* 왼쪽 정렬로 변경 */
+}
+.search-container {
+	width: 870px; 
+	height:75px; 
+	background-color: #e8eaf1;
+	padding: 20px;
+	margin-bottom: 10px;
+}
+a[class^="btn_"] .lens {
+    width: 20px;
+    height: 20px;
+    margin-left: 8px;
+    vertical-align: middle;
+    background: url("/resources/img/search.png") no-repeat;
+}

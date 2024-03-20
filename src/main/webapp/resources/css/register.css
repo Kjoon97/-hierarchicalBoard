@@ -1,0 +1,7 @@
+#pw-text1, #pw-text2, #pw-text3, #pw-text4,
+#title-text1, #title-text2, #content-text1, #userId-text1, #userId-text2, #deleteDate-text1
+{
+	color: red;
+	font-weight: bold;
+	margin-top: 5px;
+}
