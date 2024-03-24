@@ -8,6 +8,26 @@
 	<title>게시물 목록</title>
 	<%@include file="../layout/header.jsp" %>
 	<link href="${path}/resources/css/list.css" rel="stylesheet" type="text/css">
+	<style>
+		ul.pagination { 
+			list-style: none; 
+			padding: 0; 
+			justify-content: center;
+			flex-wrap: wrap; 
+			gap: 6px; /* 페이지 버튼 사이의 간격을 3px로 설정합니다. */
+		}
+		ul.pagination li.paginate_button a { 
+			display: block; 
+			border: 1px solid #dee2e6; 
+			text-decoration: none; 
+			color: #333; 
+		}
+		ul.pagination li.paginate_button.active a {
+        	background-color: red; /* active 상태일 때 버튼 색을 빨간색으로 변경합니다. */
+        	color: white; /* active 상태일 때 버튼 글자 색을 흰색으로 변경합니다. */
+        	border: #dee2e6;
+    	}
+	</style>
 </head>
 <body style="margin: 150px">
 		<div class="container text-center" style="width: 870px;">
@@ -67,7 +87,9 @@
 						<li class="paginate_button previous"><a class="page-link" href="${pageMaker.startPage - 1}">Prev</a></li>
 					</c:if>
 					<c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
-						<li class="paginate_button ${pageMaker.cri.pageNum == num ? "active" : "" } "><a class="page-link" href="${num}">${num}</a></li>
+						<li class="paginate_button ${pageMaker.cri.pageNum == num ? "active" : "" } ">
+							<a class="page-link" href="${num}">${num}</a>
+						</li>
 					</c:forEach>
 					<c:if test="${pageMaker.next}">
 						<li class="paginate_button next"><a class="page-link" href="${pageMaker.endPage + 1}">Next</a></li>
@@ -75,6 +97,17 @@
 				</ul>
 			</nav>
 			<!-- /.page -->
+			<c:if test="${not empty boards}">
+				<div>
+					<ul	id="boardPagination" class="pagination">
+						<c:forEach var="num" begin="1" end="${pageMaker.endPage}" step="1">
+							<li class="paginate_button<c:if test="${pageMaker.cri.pageNum == num}"> active</c:if>">
+								<a class="page-link" data-pageno="${page}" href="${num}">${num}</a>
+							</li>
+						</c:forEach>
+					</ul>
+				</div>
+			</c:if>
 
 			<form id='actionForm' action="/" method="get">
 				<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum}">

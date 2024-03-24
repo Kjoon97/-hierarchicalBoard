@@ -4,3 +4,11 @@ $('.paginate_button a').on('click', function(e) {
 		actionForm.find('input[name="pageNum"]').val($(this).attr('href'));
 		actionForm.submit();
 });
+
+
+$('#boardPagination .page-link').click(function(event) {
+	event.preventDefault();
+	event.stopPropagation();
+	actionForm.find('input[name="pageNum"]').val($(this).attr('href'));
+	actionForm.submit();
+});
