@@ -2,6 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <c:set var="path" value="${pageContext.request.contextPath}"/>
+<c:set var="now" value="<%=new java.util.Date().getTime()%>" />
 <%@ page session="false"%>
 <html>
 <head>
@@ -59,14 +60,21 @@
 				</thead>
 				<tbody id="tbody">
 					<c:forEach items="${boards}" var="board">
+    					<c:set var="timeDifference" value="${now - board.regDate.time}" />
+    					<c:set var="daysDifference" value="${timeDifference / (1000*60*60*24)}" />
+    					<c:set var="minutesDifference" value="${timeDifference / (1000 * 60)}" />
 						<c:set var="i" value="${i+1}" />
 						<tr>
 							<td>${i+(pageMaker.cri.pageNum-1)*pageMaker.cri.amount}</td>
 							<td>
 								<c:url value="/board/detail/${board.id}" var="url" />
+								
 								<a href="${url}">
 									<c:out value="${board.title}" escapeXml="false" />
 								</a>
+            					<c:if test="${daysDifference lt 1}">
+                					<span><img src="/resources/img/new.png" style="padding-bottom: 4px;"></span>
+            					</c:if>
 							</td>
 							<td>
 								<fmt:formatDate pattern="yyyy-MM-dd" value="${board.regDate}" />
